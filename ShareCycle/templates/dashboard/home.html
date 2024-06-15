@@ -7,7 +7,7 @@
   </head>
   <body>
     {% include "partials/_messages.html" %}
-    <h1>alksjdflkajsldkfjlaskjdl</h1>
+    <h1>{{ user.username }}</h1>
     <li class="nav-item text-nowrap mt-3 ml-2">
       <form action="{%url 'logout'%}" method="POST">
         {% csrf_token %}

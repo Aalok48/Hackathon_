@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 # Create your models here.
 
@@ -19,8 +20,9 @@ class Items(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=20)
-    
-    item_exp_date = models.DateField()
+    item_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    item_pic = models.ImageField(upload_to='Share/Cycle/image/items', blank=True, null=False)
+    item_exp_date = models.DateField(blank=True, null=True)
     item_collect_before = models.DateField()
     item_description = models.CharField(max_length=50)
     item_category = models.CharField(choices=category, max_length=15)
