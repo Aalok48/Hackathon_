@@ -14,6 +14,8 @@ from django.urls import reverse
 from django.contrib import auth
 
 # Create your views here.
+def welcome(request):
+        return render(request, 'welcome.html')
 
 class EmailValidationView(View):
     def post(self, request):
@@ -69,31 +71,7 @@ class RegistrationView(View):
                 return render(request,'authentication/register.html')
                 
         return render(request,'authentication/register.html')
-    
-
-# class VerificationView(View):
-#     def get(self,request,uidb64,token):
-        
-#         try:
-#             id=force_str(urlsafe_base64_decode(uidb64))
-#             user=User.objects.get(pk=id)
             
-#             if not token_generator.check_token(user,token):
-#                 return redirect('login'+'?message='+'User already activated')
-            
-#             if user.is_active:
-#                 return redirect('login')
-#             user.is_active=True
-#             user.save()
-            
-#             messages.success(request,"Account activated successfully.")
-#             return redirect('login')
-            
-#         except Exception as ex:
-#             pass
-        
-#         return redirect('login')
-        
         
     
 class LoginView(View):
@@ -110,8 +88,8 @@ class LoginView(View):
             if user:
                 if user.is_active:
                     auth.login(request,user)
-                    messages.success(request,"Welcome, "+user.username+'you are now logged in')
-                    return render(request, 'dashboard/dashboard.html')
+                    messages.success(request,"Welcome, "+user.username+' you are now logged in')
+                    return redirect('dashboard')
                 messages.error(request,'Account is not active, please check your email')
                 return render(request,'authentication/login.html')
             messages.error(request,'Invalid credentials,try again')
