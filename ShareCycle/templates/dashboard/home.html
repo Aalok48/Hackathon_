@@ -8,5 +8,11 @@
   <body>
     {% include "partials/_messages.html" %}
     <h1>alksjdflkajsldkfjlaskjdl</h1>
+    <li class="nav-item text-nowrap mt-3 ml-2">
+      <form action="{%url 'logout'%}" method="POST">
+        {% csrf_token %}
+        <input class="test text-capitalize" type="submit" value="Sign out" />
+      </form>
+    </li>
   </body>
 </html>

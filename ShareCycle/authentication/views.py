@@ -14,8 +14,6 @@ from django.urls import reverse
 from django.contrib import auth
 
 # Create your views here.
-def welcome(request):
-        return render(request, 'welcome.html')
 
 class EmailValidationView(View):
     def post(self, request):
@@ -102,4 +100,4 @@ class LogoutView(View):
     def post(self, request):
         auth.logout(request)
         messages.success(request,' You have been logged out')
-        return redirect('login')
+        return redirect('welcome')
