@@ -19,7 +19,11 @@ class Items(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=20)
+    
     item_exp_date = models.DateField()
     item_collect_before = models.DateField()
     item_description = models.CharField(max_length=50)
     item_category = models.CharField(choices=category, max_length=15)
+
+    def __str__(self):
+        return self.item_name

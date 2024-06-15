@@ -87,3 +87,48 @@ section img {
   padding-top: 30px;
   letter-spacing: 3px;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  overflow: hidden;
+  padding: 50px 0px;
+}
+
+.item {
+  flex-basis: 25%;
+  height: 375px;
+  margin: 10px 10px 0px 10px;
+  padding-top: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  box-shadow: 10px 10px 30px -10px lightblue;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.item img {
+  width: 300px;
+  height: 150px;
+  padding-top: 20px;
+}
+
+.item p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item p {
+  padding: 10px 40px;
+}
+
+.item h3 {
+  font-weight: 500;
+}
