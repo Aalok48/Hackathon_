@@ -21,7 +21,7 @@ class Items(models.Model):
     item_pic = models.ImageField(upload_to='static/images', blank=True, null=True)
     item_exp_date = models.DateField(blank=True, null=True)
     item_collect_before = models.DateField()
-    item_description = models.CharField(max_length=50)
+    item_description = models.CharField(max_length=500)
     item_category = models.CharField(choices=category, max_length=15)
 
     def __str__(self):

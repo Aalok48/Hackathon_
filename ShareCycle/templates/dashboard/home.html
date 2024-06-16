@@ -19,7 +19,7 @@
         <input type="search" name="" id="" placeholder="Search-Items" />
       </div>
       <div class="right">
-        <button class="donate">Donate</button>
+       <a href="{%url 'add_item'%}"> <button class="donate">Donate</button></a>
 
         <form action="{%url 'logout'%}" method="POST">
           {% csrf_token %}
@@ -31,7 +31,6 @@
             alt="User Profile"
             class="profile-pic"
           />
-          <!-- <span class="username">Username</span> -->
         </div>
       </div>
     </nav>
@@ -50,7 +49,7 @@
         {% for itm in itms %} {% if forloop.first %}
         <div class="row">
           {% endif %}
-          <div class="col-md-4 mr-0 mt-3">
+          <div class="col">
             <a href="">
               <div class="card">
                 {% if itm.item_pic %}
@@ -72,18 +71,20 @@
     <hr />
 
     <footer class="footer">
-      <div class="footerl">
-        <div class="footer-logo">
+      <div class="footer-logo">
+        <div class="footer-left">
           <img src="{% static 'img/share-cycle-logo.jpeg' %}" alt="" />
           <p>Share Cycle</p>
         </div>
-        <div class="footerli">
+        <div class="footer-right">
           <ul class="footer-links">
             <!-- <li>Company</li> -->
             <li>Products</li>
             <li>About</li>
             <li>Contact</li>
           </ul>
+        </div>
+      </div>
           <div class="footer-social-icon">
             <div class="footer-icons-container">
               <img src="{% static 'img/instagram_icon.png' %}" alt="" />
