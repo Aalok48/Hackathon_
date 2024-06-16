@@ -12,7 +12,7 @@ def index(request):
 def dashboard(request):
     user = request.user
     inds = User.objects.filter(user = user)
-    itms = User.objects.all()
+    itms = Items.objects.all()
     context ={
         'user':user,
         'inds':inds,
