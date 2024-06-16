@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.loginsignup {
+    margin: 30px 0px;
+    width: 35%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loginsignup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginsignup-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.loginsignup-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.loginsignup-fields label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.loginsignup-fields input,
+.loginsignup-fields select,
+.loginsignup-fields textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.loginsignup-fields textarea {
+    height: 75px;
+    resize: none;
+}
+
+.word-count {
+    font-size: 14px;
+    color: #555;
+    text-align: right;
+    margin: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+    <div class="loginsignup">
+        <form method="post">
+            {% csrf_token %}
+            <div class="loginsignup-container">
+                <h1>Fill in the Details</h1>
+                <div class="loginsignup-fields">
+                    <label for="item_name">Item Name</label>
+                    <input type="text" id="item_name" name="item_name" />
+
+                    <label for="item_category">Item Category</label>
+                    <select id="item_category" name="item_category">
+                        <option value="" disabled selected>Select Item Category</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="food">Food</option>
+                        <option value="books">Books</option>
+                        <option value="others">Others</option>
+                    </select>
+
+                    <label for="item_pic">Item Image</label>
+                    <input type="file" id="item_pic" name="item_pic" accept="image/*" />
+
+                    <label for="item_exp_date">Item Expiry Date</label>
+                    <input type="date" id="item_exp_date" name="item_exp_date" />
+
+                    <label for="item_collect_before">Collect Before Date</label>
+                    <input type="date" id="item_collect_before" name="item_collect_before" />
+
+                    <label for="item_description">Item Description</label>
+                    <textarea id="item_description" name="item_description"></textarea>
+                    <p id="word-count" class="word-count">0 / 50 words</p>
+                </div>
+                <button type="submit">Continue</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const descriptionField = document.getElementById('item-description');
+        const wordCountDisplay = document.getElementById('word-count');
+        const maxWords = 50;
+
+        descriptionField.addEventListener('input', function() {
+            let words = descriptionField.value.match(/\b[-?(\w+)?]+\b/gi);
+            let wordCount = words ? words.length : 0;
+
+            if (wordCount > maxWords) {
+                let trimmedText = words.slice(0, maxWords).join(' ');
+                descriptionField.value = trimmedText;
+                wordCount = maxWords;
+            }
+
+            wordCountDisplay.textContent = `${wordCount} / ${maxWords} words`;
+        });
+    </script>
+</body>
+</html>

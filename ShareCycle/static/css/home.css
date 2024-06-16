@@ -11,7 +11,6 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 10px 20px;
-  background-color: transparent;
   position: sticky;
   top: 0px;
   border-bottom: 0.5px solid #e0e0e0;
@@ -36,6 +35,239 @@ body {
   border: 1px solid black;
 }
 
-.navbar button:hover {
-  background-color: #d0d4d8;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 20px;
+  color: white;
+  background-color: white;
+}
+
+.navbar .mid {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar .right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.right button {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  width: 100px;
+  height: 43px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+.right button:hover {
+  background-color: #bcbaba;
+  /* color: white; */
+}
+
+.navbar input[type='search'] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  text-align: center; /* Center the placeholder text */
+}
+
+.navbar .mid input {
+  max-width: 400px;
+  width: 100%;
+}
+
+.navbar input[type='search']::placeholder {
+  text-align: center; /* Ensure the placeholder is also centered */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.items {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.left-below-nav {
+  padding-top: 50px;
+  flex-basis: 10%;
+  background-color: rgb(160, 155, 155);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.right-below-nav {
+  /* height: 5000px; */
+  padding-bottom: 100px;
+  margin-bottom: 15px;
+  flex-basis: 88%;
+  background-color: rgb(230, 224, 224);
+}
+.menu-lists {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.menu-lists li {
+  /* background-color: #444; */
+  text-align: center;
+  padding: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.logout {
+  margin-top: 500px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.item {
+  flex-basis: 25%;
+  height: 400px;
+  margin: 10px 10px 0px 10px;
+  padding-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 10px 10px 30px -10px rgb(102, 99, 99);
+  border-radius: 20px;
+  text-align: center;
+}
+.item img {
+  width: 300px;
+  height: 150px;
+  padding-top: 20px;
+}
+.item p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item p {
+  padding: 10px 40px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer .footerl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer .footerl .footer-logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .footerl .footerli {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.footer-logo {
+  /* background-color: rgb(160, 155, 155); */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-logo img {
+  width: 90px;
+  height: 60px;
+}
+.footer-logo p {
+  color: #383838;
+  font-size: 30px;
+  font-weight: 600;
+}
+.footer-links {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  color: #252525;
+  font-size: 20px;
+}
+.footer-links li {
+  cursor: pointer;
+}
+.footer-social-icon {
+  display: flex;
+  gap: 20px;
+}
+.footer-icons-container {
+  padding: 10px;
+  padding-bottom: 6px;
+  background: #fbfbfb;
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+}
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  font-size: 20px;
+}
+.footer-copyright hr {
+  width: 100%;
+  /* border-radius: 10px; */
+  /* height: 1px; */
+  /* background-color: #c7c7c7; */
+}
+
+.navbar .right .donate:hover {
+  background-color: #5c9371;
 }
